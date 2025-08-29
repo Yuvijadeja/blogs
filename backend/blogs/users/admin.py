@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth import get_user_model
-from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.models import Group
+from django.contrib.auth.admin import UserAdmin, GroupAdmin
 
 User = get_user_model()
 
@@ -31,6 +32,7 @@ class UserAdmin(UserAdmin):
         return self.readonly_fields
 
 admin.site.register(User, UserAdmin)
+admin.site.unregister(Group)
 
 admin.site.site_title = "Blog Management System - by Yuvi Jadeja"
 admin.site.site_header = "Blogs | by Yuvi Jadeja"
